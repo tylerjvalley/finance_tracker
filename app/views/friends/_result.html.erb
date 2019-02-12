@@ -13,10 +13,10 @@
             <tr>
               <td><strong>Full Name:</strong> <%= user.full_name %></td>
               <td><strong>Email:</strong> <%= user.email %></td>
-              <td><strong>Profile:</strong> <%= link_to "View Profile", "#", class: "btn btn-xs btn-success" %>
+              <td><strong>Profile:</strong> <%= link_to "View Profile", user_path(user), class: "btn btn-xs btn-success" %>
                 <% if current_user.not_friends_with?(user.id) %>
                   <%= link_to "Add friend", add_friend_path(user: current_user, friend: user),
-                                                            class: "btn btn-xs btn-primary" %>
+                                                            class: "btn btn-xs btn-primary", method: :post %>
                 <% else %>
                   <span class="label label-primary">
                     You are already friends
